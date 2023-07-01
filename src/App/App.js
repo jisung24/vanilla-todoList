@@ -47,6 +47,7 @@ export default function App({ $target, initialState }) {
       findValue.isCompleted = !findValue.isCompleted;
       const nextState = state;
       todoListBox.setState(nextState);
+      setItem("todos", JSON.stringify(nextState));
     },
   });
 }
