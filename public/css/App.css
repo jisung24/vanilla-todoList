@@ -1,0 +1,128 @@
+/* 🟠 entire 🟠 */
+*{
+  margin : 0;
+  padding : 0;
+  box-sizing: border-box;
+}
+/* exception */ 
+ul {
+  list-style-type: none;
+}
+
+html, body {
+  width : 100vw;
+  height : 100vh;
+  background-color: rgb(199, 225, 249);
+}
+
+body {
+  display : flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 🟠 App(container) 🟠 */
+#app {
+  width : 60%;
+  height : 70%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  border-radius : 5%;
+}
+
+/* 🟠 header 🟠 */
+#app header {
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  padding : 15px 0;
+}
+
+
+/* 🟠 todoForm 🟠 */
+#app form {
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  border-radius : 10px;
+  overflow: hidden;
+  width : fit-content;
+  height : fit-content;
+  margin : 10px auto;
+}
+#app form > *{
+  outline : none;
+  border : none;
+  height : 40px;
+  background-color: transparent;
+}
+
+#app form > input#todo-list{
+  width : 250px;
+  text-align: center;
+  font-size : 1.2rem;
+}
+#app form > button{
+  cursor: pointer;
+  padding : 5px 5px;
+}
+#app form button:hover{
+  transition: all 0.5s;
+  
+}
+
+
+/* 🟠 todoListBox 🟠 */
+.todoList-box {
+  display : flex;
+
+}
+.todoList-box > * {
+  text-align: center;
+}
+.todoList-box ul {
+  /* flex 고정시키는 법 */
+  /* flex-grow : 1; */
+  max-width : 33.3%;
+  min-width : 33.3%;
+  height : 400px;
+  display : flex;
+  flex-direction: column;
+}
+.todoList-box ul h1.todoList-title{
+  height : 20%;
+  padding : 20px 0;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+}
+.todoList-box ul div.list-wrapper{
+  height : 100%;
+  position : relative;
+  overflow-y: scroll;
+  
+}
+.todoList-box ul div.list-wrapper li.todo-item{
+  min-height : 50px;
+  max-height : 50px;
+  max-width : 100%;
+  min-width : 100%;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  margin : 3px 0;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  border-radius : 10px;
+}
+.todoList-box ul div.list-wrapper li.todo-item:hover{
+  transition : all 0.5s;
+  background-color: aliceblue;
+  cursor: pointer;
+}
+.todoList-box ul div.list-wrapper li.todo-item button.delete-button{
+  background-color: transparent;
+  border : none;
+  outline : none;
+  font-size : 1.2rem;
+  cursor: pointer;
+  margin : 0 5px;
+}
