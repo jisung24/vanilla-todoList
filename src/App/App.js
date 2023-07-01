@@ -1,6 +1,5 @@
 import Header from "../shared/Header/Header.js";
 import { setItem } from "../storage.js";
-import TodoCount from "../todo/TodoCount.js";
 import TodoForm from "../todo/TodoForm.js";
 import TodoListBox from "../todo/TodoListBox.js";
 
@@ -28,7 +27,7 @@ export default function App({ $target, initialState }) {
 
       // 3. (1,2번 통과 시) 추가
       const nextState = [...todoListBox.state, { text, isCompleted: false }];
-      todoListBox.setState(nextState);
+      todoListBox.setState(nextState); // 업데이트 되면서, 자식들까지 update됨.
       setItem("todos", JSON.stringify(nextState));
     },
   });
@@ -48,18 +47,6 @@ export default function App({ $target, initialState }) {
       findValue.isCompleted = !findValue.isCompleted;
       const nextState = state;
       todoListBox.setState(nextState);
-    },
-  });
-
-  const todoCount = new TodoCount({
-    $target,
-    initialState: {
-      all: todoListBox.state.length,
-      completed: todoListBox.state.filter(({ isCompleted }) => isCompleted)
-        .length,
-
-      notCompleted: todoListBox.state.filter(({ isCompleted }) => !isCompleted)
-        .length,
     },
   });
 }

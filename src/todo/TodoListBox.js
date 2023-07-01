@@ -1,3 +1,4 @@
+import TodoCount from "./TodoCount.js";
 import TodoList from "./TodoList.js";
 
 export default function TodoListBox({
@@ -16,6 +17,7 @@ export default function TodoListBox({
     this.render();
   };
 
+  // 등록된 모든 todoList
   const allTodos = new TodoList({
     $target: $div,
     title: "all",
@@ -23,22 +25,37 @@ export default function TodoListBox({
     onToggle,
   });
 
+  // 완성된 todoList
   const completedTodos = new TodoList({
     $target: $div,
     title: "done",
   });
 
+  // 완성되지 않은 todoList
   const notCompletedTodos = new TodoList({
     $target: $div,
     title: "not",
   });
 
+  // 요소의 개수.
+  const countOfElements = new TodoCount({
+    $target: $div,
+  });
   this.render = () => {
     allTodos.render(this.state);
     completedTodos.render(this.state.filter(({ isCompleted }) => isCompleted));
     notCompletedTodos.render(
       this.state.filter(({ isCompleted }) => !isCompleted)
     );
+    // 길이!
+    const allLength = this.state.length;
+    const completedLength = this.state.filter(
+      ({ isCompleted }) => isCompleted
+    ).length;
+    const notCompletedLength = this.state.filter(
+      ({ isCompleted }) => !isCompleted
+    ).length;
+    countOfElements.render(allLength, completedLength, notCompletedLength);
   };
   this.render();
 }
