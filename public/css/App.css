@@ -22,6 +22,7 @@ body {
 }
 /* 🟠 App(container) 🟠 */
 #app {
+  position : relative;
   width : 60%;
   height : 70%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
@@ -75,7 +76,7 @@ body {
 /* 🟠 todoListBox 🟠 */
 .todoList-box {
   display : flex;
-  position : relative;
+  /* position : relative; */
 }
 .todoList-box > * {
   text-align: center;
@@ -132,9 +133,11 @@ body {
 .todoList-box .todoCnt-box {
   display : flex;
   position : absolute;
-  left : 50%;
-  bottom : -30px;
+  left : 20%;
+  top : 5%;
   transform : translateX(-50%);
+  /* border : 8px solid black; */
+
 }
 .todoList-box .todoCnt-box p{
   flex-grow : 1;
