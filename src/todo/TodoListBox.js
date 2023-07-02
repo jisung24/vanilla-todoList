@@ -14,9 +14,11 @@ export default function TodoListBox({
   this.state = initialState || [];
 
   this.setState = (nextState) => {
-    this.state = nextState; // state를 update해줬지!
+    this.state = nextState;
 
-    allTodos.setState(nextState); // 재랜더링
+    // allTodos, completedTodos, notCompletedTodos, countOfElements
+    // 4개의 자식들을 동시에 업데이트로 반영해줌.
+    allTodos.setState(nextState);
     completedTodos.setState(nextState.filter(({ isCompleted }) => isCompleted)); // 재랜더링
     notCompletedTodos.setState(
       nextState.filter(({ isCompleted }) => !isCompleted)
@@ -26,7 +28,7 @@ export default function TodoListBox({
       completed: nextState.filter(({ isCompleted }) => isCompleted).length,
       notCompleted: nextState.filter(({ isCompleted }) => !isCompleted).length,
     });
-    this.render(); // 본인도!
+    this.render();
   };
 
   // 등록된 모든 todoList
@@ -66,20 +68,6 @@ export default function TodoListBox({
     completedTodos.render();
     notCompletedTodos.render();
     countOfElements.render();
-    // allTodos.render(this.state);
-    // completedTodos.render(this.state.filter(({ isCompleted }) => isCompleted));
-    // notCompletedTodos.render(
-    //   this.state.filter(({ isCompleted }) => !isCompleted)
-    // );
-    // // 길이!
-    // const allLength = this.state.length;
-    // const completedLength = this.state.filter(
-    //   ({ isCompleted }) => isCompleted
-    // ).length;
-    // const notCompletedLength = this.state.filter(
-    //   ({ isCompleted }) => !isCompleted
-    // ).length;
-    // countOfElements.render(allLength, completedLength, notCompletedLength);
   };
   this.render();
 }

@@ -76,7 +76,6 @@ body {
 /* 🟠 todoListBox 🟠 */
 .todoList-box {
   display : flex;
-  /* position : relative; */
 }
 .todoList-box > * {
   text-align: center;
@@ -133,10 +132,9 @@ body {
 .todoList-box .todoCnt-box {
   display : flex;
   position : absolute;
-  left : 20%;
+  left : 15%;
   top : 5%;
   transform : translateX(-50%);
-  /* border : 8px solid black; */
 
 }
 .todoList-box .todoCnt-box p{
