@@ -16,13 +16,18 @@ export default function TodoListBox({
   this.setState = (nextState) => {
     this.state = nextState;
 
-    // allTodos, completedTodos, notCompletedTodos, countOfElements
-    // 4개의 자식들을 동시에 업데이트로 반영해줌.
+    // ⚪️ allTodos state수정
     allTodos.setState(nextState);
+
+    // ⚪️ completedTodos state수정
     completedTodos.setState(nextState.filter(({ isCompleted }) => isCompleted)); // 재랜더링
+
+    // ⚪️ notCompletedTodos state수정
     notCompletedTodos.setState(
       nextState.filter(({ isCompleted }) => !isCompleted)
-    ); // 재랜더링
+    );
+
+    // ⚪️ countOfElements state수정
     countOfElements.setState({
       all: nextState.length,
       completed: nextState.filter(({ isCompleted }) => isCompleted).length,

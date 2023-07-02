@@ -5,19 +5,18 @@ export default function TodoList({
   onDelete,
   onToggle,
 }) {
-  console.log(initialState);
   const $ul = document.createElement("ul");
   $target.appendChild($ul);
 
   this.state = initialState;
-  console.log(this.state);
   this.setState = (nextState) => {
     if (nextState !== null) {
       this.state = nextState;
       this.render();
     }
   };
-  // 이미 ul은 적용 돼 있음...!
+  // 위에서 ul은 이미 그렸기 때문에,
+  // render부분에서 event등록해줄 필요없음.
   $ul.addEventListener("click", (e) => {
     const targetElement = e.target;
 
